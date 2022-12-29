@@ -1,13 +1,10 @@
-var base64 = require('base-64');
 import cred from "../fixtures/example.json";
 
+var base64 = require("base-64");
+
 class Decryption {
-    
-    getDecodedString(string){
-        return base64.decode(cred[string]);
-    }
+  static decoderdData(string) {
+    return base64.decode(cred[string]);
+  }
 }
-
-export default Decryption;
-
-
+module.exports = Decryption;

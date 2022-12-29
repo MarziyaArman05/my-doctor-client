@@ -1,46 +1,35 @@
-import {Given,When,Then} from "@badeball/cypress-cucumber-preprocessor";
-import LoginPage from '../../pageObject/login';
-import DashBoardPage from "../../pageObject/dashboard";
-import CommonFile from "../../pageObject/commonFile";
-import Decryption from "../../utilities/decryption";
+import { Given, Then } from "@badeball/cypress-cucumber-preprocessor";
+import GenericActions from "../../utilities/genericActions";
+import WebXpath from "../../helpers/webXpath";
+import WebButton from "../../helpers/webButton";
+import urls from "../../pages/urls.json";
+import locators from "../../pages/loginLocators.json";
 
-const loginPage = new LoginPage();
-const dashboard = new DashBoardPage();
-const commonFile = new CommonFile();
-const decode = new Decryption();
+const generic = new GenericActions();
+const webxpath = new WebXpath();
+const webButton = new WebButton();
 
-Given("I am on the login page", () => {
-    loginPage.visit()
+Given("user is on the homepage", function () {
+  generic.visit();
 });
 
-
-When("I click on the {string} button", (label) => {
-    loginPage.clickButtonByVisibleText(label)
+Given("user navigates to {string} page", function (string) {
+  cy.visit(urls[string]);
 });
 
-Then("I should see {string} message on the page", (text) => {
-    loginPage.checkTextVisibility(text)
+Then("user clicks on the {string} button", function (webElement) {
+  webButton.click(locators[webElement]);
 });
-
-
-// Given("I login to the dashboard with {string} credentials",(user) => {
-//     loginPage.iloginWithAdminCredentials(user)
-// });
-
-When("I fill {string} on the {string} input field",function(string1,string2){
-    let decodedText = decode.getDecodedString(string1);
-    commonFile.iEnterValue(string2,decodedText)
+Then("user clicks on the {string} card", function (webElement) {
+  generic.wait(1000);
+  webButton.click(locators[webElement]);
+ 
 });
-
-
-When("I check the {string} checkbox",function(string){
-    commonFile.iCheckedCheckBox(string)
-});
-
-Then("I should navigate to the {string} dashboard page", (text) => {
-    loginPage.checkUrlContainsText(text)
-});
-
-Then("I should see {string} heading on the page", (text) => {
-    loginPage.checkTextVisibility(text)
+Then("user can view the messages {string}", function (message) {
+  let array = [];
+  array = message.split(",");
+  cy.log(array);
+  for (let count = 0; count < array.length; count++) {
+    webxpath.shouldContainTextByXpath("visibleText", array[count]);
+  }
 });

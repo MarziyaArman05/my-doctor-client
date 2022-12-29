@@ -56,3 +56,5 @@ allure-results
 
 
 screenshots
+/package-lock.json
+/package-lock.json

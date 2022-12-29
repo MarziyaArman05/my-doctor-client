@@ -5,7 +5,6 @@ const addCucumberPreprocessorPlugin =
 const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
-
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
@@ -16,11 +15,10 @@ module.exports = defineConfig({
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
 
-
       return config;
     },
     specPattern: "cypress/e2e/features/*.feature",
-    baseUrl: "https://admin-demo.nopcommerce.com",
+    baseUrl: "http://192.168.29.2:3002/",
     chromeWebSecurity: false,
     chromeWebSecurity: false,
     viewportHeight: 900,

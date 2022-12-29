@@ -1,6 +1,4 @@
 {
-  "admin_email": "IGFkbWluQHlvdXJzdG9yZS5jb20=",
-  "admin_password": "YWRtaW4=",
-  "invalid_email": "IGFkbWluQHlvdXJzdG9yZS5jb21=",
-  "invalid_password": "ZGFuaXNoc29tYQ=="
+  "PATIENT_EMAIL": "dGVzdGRhdGFAZ21haWwuY29t",
+  "PATIENT_PASSWORD": "VGVzdGRhdGFAMTIz"
 }
