@@ -1,8 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import GenericActions from "../../utilities/genericActions";
-import WebElement from "../../helpers/webElement";
+import WebElement from "../../utilities/genericHelpers";
 import WebXpath from "../../helpers/webXpath";
-import locators from "../../pages/loginLocators.json";
+import locators from "../../pages/dashboardLocators.json";
 import WebText from "../../helpers/webText";
 
 const generic = new GenericActions();
@@ -23,18 +23,18 @@ Then(
   }
 );
 
-Then("user can view list of {string}", function (string) {
+Then("user can view list of {string}", function (elementIdentifier) {
   generic.wait(1000);
   cy.scrollTo("bottom");
-  webElement.elementIsPresent(locators[string], string);
+  webElement.elementIsPresent(locators[elementIdentifier]);
 });
 
-Then("user is on the {string} page", function (string) {
+Then("user is on the {string} page", function (elementIdentifier) {
   cy.scrollTo("bottom");
-  webElement.elementIsDisplayed(locators[string], string);
+  webElement.elementIsDisplayed(locators[elementIdentifier]);
 });
 
-Then("user is on {string} page", function (string) {
+Then("user is on {string} page", function (elementIdentifier) {
   cy.scrollTo("bottom");
-  webxpath.shouldContainTextByXpath("visibleText", string);
+  webxpath.shouldContainTextByXpath("visibleText", elementIdentifier);
 });

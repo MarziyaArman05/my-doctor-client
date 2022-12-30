@@ -14,7 +14,7 @@ class WebTextBox {
 
   typeText(element, data) {
 
-    webElment = locators[element];
+    // webElment = locators[element];
     cy.get(element)
       .clear()
       .type(data)

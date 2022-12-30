@@ -11,8 +11,7 @@ class WebElement {
     }
   }
   elementIsPresent(element) {
-
-    webElementlocator = locators[elementIdentifier]
+    // webElementlocator = locators[elementIdentifier]
     try {
       if (cy.get(element).should("exist")) {
         cy.log("The Element: " + element + " is Present in the webpage.");

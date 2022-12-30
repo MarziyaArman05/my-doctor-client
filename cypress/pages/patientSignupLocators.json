@@ -1,0 +1,11 @@
+{
+  "full name": "#full_name",
+  "date": "#dropdown-day  select",
+  "month": "#dropdown-month  select",
+  "year": "#dropdown-year  select",
+  "email": "#email_address",
+  "mobileNumber": "#mobile_number",
+  "create password": "#password",
+  "confirm password": "#confirm_password",
+  "register": "form [type='submit']:last()"
+}

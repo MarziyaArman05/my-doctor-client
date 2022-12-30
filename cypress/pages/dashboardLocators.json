@@ -1,10 +1,4 @@
 {
-  "Email": "#emailOrMobile",
-  "Password": "#password",
-  "login": "span.MuiButton-label:contains('Login')",
-  "submit": "form span.MuiButton-label",
-  "register": "form [type='submit']:last()",
-
   "Showing results for": "h6.MuiTypography-root.MuiTypography-h6",
   "View all Specialities": "div a:contains('View all Specialities...')",
   "items": "main.makeStyles-main-7",
